@@ -16,7 +16,7 @@ DROP TABLE IF EXISTS type_peripherique;
 CREATE TABLE type_peripherique
 (
 id_type_peripherique INT UNIQUE AUTO_INCREMENT PRIMARY KEY,
-nom_type_peripherique VARCHAR(25)
+nom_type_peripherique VARCHAR(25) NOT NULL
 )engine=InnoDb;
 
 
