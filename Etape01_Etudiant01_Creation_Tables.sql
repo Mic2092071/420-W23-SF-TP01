@@ -8,18 +8,31 @@ Marc-Antoine St-Hilaire
 -- -----------------------------------------------------
 -- Étape 1 : Création des tables                      --
 -- -----------------------------------------------------
-
+DROP DATABASE IF EXISTS PosteClientDFC;
 CREATE DATABASE IF NOT EXISTS PosteClientDFC;
 
 USE PosteClientDFC;
 -- -----------------------------------------------------
 -- Étape 1 : Création des tables                      --
 -- -----------------------------------------------------
-SET FOREIGN_KEY_CHECKS = 0;
+
 DROP TABLE IF EXISTS poste;
 DROP TABLE IF EXISTS local;
 DROP TABLE IF EXISTS peripherique;
 DROP TABLE iF EXISTS fabricant;
+
+CREATE TABLE fabricant(
+id_fabricant INTEGER UNIQUE AUTO_INCREMENT PRIMARY KEY,
+nom_fabricant VARCHAR(45) NOT NULL
+) engine=InnoDb;
+
+
+CREATE TABLE local(
+id_local INTEGER UNIQUE AUTO_INCREMENT PRIMARY KEY,
+nom_local VARCHAR(45)
+)ENGINE=InnoDb;
+
+
 CREATE TABLE poste
 (
 id_poste INTEGER UNIQUE AUTO_INCREMENT PRIMARY KEY,
@@ -37,11 +50,9 @@ REFERENCES local(id_local)
 ON UPDATE CASCADE ON DELETE RESTRICT
 ) engine=InnoDb;
 
-CREATE TABLE local(
-id_local INTEGER UNIQUE AUTO_INCREMENT PRIMARY KEY,
-nom_local VARCHAR(45)
-)
-ENGINE=InnoDb;
+
+
+
 
 CREATE TABLE peripherique(
 id_peripherique INTEGER UNIQUE AUTO_INCREMENT PRIMARY KEY,
@@ -55,7 +66,4 @@ FOREIGN KEY (id_fabricant)
 REFERENCES fabricant(id_fabricant)
 ON UPDATE CASCADE ON DELETE RESTRICT
 ) engine=InnoDb;
-CREATE TABLE fabricant(
-id_fabricant INTEGER UNIQUE AUTO_INCREMENT PRIMARY KEY,
-nom_fabricant VARCHAR(45) NOT NULL
-) engine=InnoDb;
+
