@@ -10,7 +10,7 @@ USE PosteClientDFC;
 -- -----------------------------------------------------
 -- Étape 3 : Ajout de tables et de colonnes           --
 -- -----------------------------------------------------
-SET FOREIGN_KEY_CHECKS = 0;
+
 
 DROP TABLE IF EXISTS type_peripherique;
 CREATE TABLE type_peripherique

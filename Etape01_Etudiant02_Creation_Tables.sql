@@ -11,7 +11,10 @@ Marc-Antoine St-Hilaire
 
 USE PosteClientDFC;
 
-SET FOREIGN_KEY_CHECKS = 0;
+CREATE TABLE editeur(
+    id_editeur INT UNIQUE NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nom_editeur VARCHAR(45) NOT NULL
+) ENGINE = INNODB;
 
 CREATE TABLE logiciel(
     id_logiciel INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -23,10 +26,7 @@ CREATE TABLE logiciel(
         ON UPDATE CASCADE ON DELETE RESTRICT
 ) ENGINE = INNODB;
 
-CREATE TABLE editeur(
-    id_editeur INT UNIQUE NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    nom_editeur VARCHAR(45) NOT NULL
-) ENGINE = INNODB;
+
 
 CREATE TABLE usager(
     id_usager INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -55,4 +55,3 @@ CREATE TABLE poste_has_logiciel(
     CONSTRAINT fk_poste_id_logiciel FOREIGN KEY (id_logiciel) REFERENCES logiciel(id_logiciel)
 ) ENGINE = INNODB;
 
-SET FOREIGN_KEY_CHECKS = 1;
