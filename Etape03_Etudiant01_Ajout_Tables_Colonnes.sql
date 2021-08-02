@@ -27,12 +27,16 @@ VALUES
 ('Clavier'),
 ('Écran');
 
+ALTER TABLE peripherique
+ADD id_type_peripherique INT,
+ADD FOREIGN KEY (id_type_peripherique) REFERENCES type_peripherique(id_type_peripherique)
+ON UPDATE CASCADE ON DELETE RESTRICT;
 
 ALTER TABLE local
   ADD nb_bureau INT,
   ADD nb_prise_ethernet INT,
   ADD imprimante_id_peripherique INT,
-  ADD FOREIGN KEY (imprimante_id_peripherique) REFERENCES type_peripherique(id_type_peripherique)
+  ADD FOREIGN KEY (imprimante_id_peripherique) REFERENCES peripherique(id_peripherique)
   ON UPDATE CASCADE ON DELETE RESTRICT;
 
 
