@@ -27,7 +27,7 @@ UPDATE typeusager
 SET nom_statut = 'Professeur' WHERE id_typeUsager <=9;
 
 UPDATE typeusager 
-SET nom_statut = 'Employé' WHERE id_typeUsager >=100 AND Id_type_usager <=999;
+SET nom_statut = 'Employé' WHERE id_typeUsager >=100 AND id_typeUsager <=999;
 
 UPDATE typeusager 
 SET nom_statut = 'Étudiant' WHERE id_typeUsager >=1000;
