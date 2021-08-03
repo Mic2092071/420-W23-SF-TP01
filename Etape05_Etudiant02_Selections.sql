@@ -17,9 +17,9 @@ WHERE NOT (nb_bureau IS NULL AND nb_prise_ethernet IS NULL AND nb_prise_ethernet
 SELECT CONCAT(u.nom_usager, ',', u.prenom_usager) AS 'Nom d''usager', nom_local AS 'Local', desc_poste AS 'Description du poste'
 FROM usager AS u
 INNER JOIN local
-    ON local_id_local = nom_local
+    ON local_id_local = id_local
 INNER JOIN poste
-    ON id_poste = desc_poste
+    ON id_poste = id_poste
 ORDER BY `Nom d'usager`;
 
 SET FOREIGN_KEY_CHECKS = 1;
